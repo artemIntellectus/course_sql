@@ -46,6 +46,8 @@ mysql> DROP DATABASE IF EXISTS dbname;
 ## 테이블 생성
 ```sql
 # 학생 student
+-- int형 사용시 음수~양수 범위까지 사용가능하다. unsigned 이용하면 음수 영역을 제거하고 양수 영역을 추가로 확보한다.
+-- auto_increment : 최댓값을 기억하고 있다가 새로운 값이 들어올시 +1을 해서 저장한다.
 create table student (
 	student_id INT UNSIGNED auto_increment COMMENT '학생아이디',
 	student_name varchar(10) not null COMMENT '학생이름',

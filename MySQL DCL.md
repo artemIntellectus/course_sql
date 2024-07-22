@@ -9,8 +9,13 @@ marp: true
 - 사용자 확인
 ```sql
 mysql> use mysql;
-mysql> select * from user;
+-- 사용자 확인,root 계정이 2개인데 user하고 host가 연결되어 pk로 인식되기 때문이다.
+mysql> us
+
+-- desc 테이블 정보 : 스키마 정보 표시
+desc user;
 ```
+
 - 로컬에서만 접속 가능한 userid 생성
 ```sql
 mysql> create user 'userid'@localhost identified by '비밀번호';
@@ -36,6 +41,10 @@ mysql> drop user 'userid'@'%';
 mysql> GRANT ALL privileges ON *.* to '계정명'@계정 호스트 정보;
 # grant table reload
 mysql> FLUSH PRIVILEGES; # 새로운 권한 적용
+
+-- 권한 박탈
+mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'userid'@'%';
+FLUSH PRIVILEGES;
 ```
 - 특정 데이터베이스 전체 테이블의 조회 권한 부여
 ```sql
